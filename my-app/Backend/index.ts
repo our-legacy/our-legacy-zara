@@ -38,49 +38,49 @@ const start = async (): Promise<void> => {
     }
   };
 
-//   connection.sync().then(() => {
-//     app.listen(3000, () => {
-//       console.log("Server is running on port 3000");
-//     });
-//   }).then(() => {
-//     async function insertDummyData() {
-//       try {
-//         // Iterate over the data array
-//         for (const product of data) {
-//           const { name, image, price, quantity, gender, category, description } = product;
+  // connection.sync().then(() => {
+  //   app.listen(4000, () => {
+  //     console.log("Server is running on port 3000");
+  //   });
+  // }).then(() => {
+  //   async function insertDummyData() {
+  //     try {
+  //       // Iterate over the data array
+  //       for (const product of data) {
+  //         const { name, image, price, quantity, gender, category, description } = product;
     
-//           // Check if a similar entry already exists
-//           const existingProduct = await Products.findOne({
-//             where: {
-//               name,
-//               gender,
-//               category,
-//             },
-//           });
+  //         // Check if a similar entry already exists
+  //         const existingProduct = await Products.findOne({
+  //           where: {
+  //             name,
+  //             gender,
+  //             category,
+  //           },
+  //         });
     
-//           if (!existingProduct) {
-//             // No similar entry found, proceed with insertion
-//             await Products.create<any>({
-//               name,
-//               image,
-//               price,
-//               quantity,
-//               gender,
-//               category,
-//               description,
-//             });
-//             console.log('Product inserted successfully');
-//           } else {
-//             console.log('Similar entry already exists');
-//           }
-//         }
-//       } catch (error) {
-//         console.log(`Error: ${error}`);
-//       }
-//     }
+  //         if (!existingProduct) {
+  //           // No similar entry found, proceed with insertion
+  //           await Products.create<any>({
+  //             name,
+  //             image,
+  //             price,
+  //             quantity,
+  //             gender,
+  //             category,
+  //             description,
+  //           });
+  //           console.log('Product inserted successfully');
+  //         } else {
+  //           console.log('Similar entry already exists');
+  //         }
+  //       }
+  //     } catch (error) {
+  //       console.log(`Error: ${error}`);
+  //     }
+  //   }
     
-//     // Call the function to insert dummy data
-//     insertDummyData();
-//   })
+  //   // Call the function to insert dummy data
+  //   insertDummyData();
+  // })
 
 void start();
