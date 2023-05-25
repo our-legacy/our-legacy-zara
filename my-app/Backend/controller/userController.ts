@@ -1,47 +1,158 @@
 import { Request, Response } from "express";
 import { Users } from "../models/Users";
+import { getRepository } from "typeorm";
+import bcryptjs from 'bcryptjs';
+import  jwt  from 'jsonwebtoken';
+
+
+
+
 
 export const getUser = async (req: Request, res: Response) => {
   try {
-    const users = await Users.findAll();
-    res.json(users);
+    const user = await Users.findAll();
+    res.json(user);
   } catch (error) {
     console.error("Error retrieving users:", error);
     res.status(500).send("Error retrieving users");
   }
-};
+};0
+
+
+
 
 export const userLogin = async (req: Request, res: Response) => {
   const { email, password } = req.body;
+  // console.log(req.body)
 
-  try {
-    const user = await Users.findOne({ where: { email, password } });
+  
+    const user:any = await Users.findOne({ where: { email} });
+    // console.log(user)
+    if (!user) {
+      return res.status(400).send({
+          message: 'Invalid Credentials '
+      })
+  }
+  const matchedPassword = await bcryptjs.compare(
+    password as string,
+    user.dataValues.password as string
+  );
 
-    if (user) {
-      res.json(user);
-    } else {
-      res.status(401).send("Invalid email or password");
-    }
-  } catch (error) {
-    console.error("Error logging in user:", error);
-    res.status(500).send("Error logging in user");
+  if (matchedPassword) {
+    const token = jwt.sign(
+      {
+        userId: user.id,
+        userEmail: user.email
+      },
+      "123"
+    );
+
+res.status(200).json({
+      token: token,
+      message: "Authentication successful",
+      id:user.id
+    });
+  } else {
+    res.status(400).send("Wrong password");
   }
 };
 
+
+/////signup //////////
 export const signupUser = async (req: Request, res: Response) => {
   const { firstname, lastname, email, password } = req.body;
 
   try {
-    const user = await Users.create<any>({
+    const users = await Users.create<any>({
       firstname,
       lastname,
       email,
-      password,
+      password: await bcryptjs.hash(password, 12)
     });
 
-    res.json(user);
+    res.json(users);
   } catch (error) {
     console.error("Error signing up user:", error);
     res.status(500).send("Error signing up user");
   }
 };
+ 
+
+
+
+
+
+
+
+
+
+
+// export const AuthenticatedUser = async (req: Request, res: Response) => {
+//   try {
+//       console.log(req.cookies);
+//       const accessToken = req.cookies['accessToken'];
+
+//       const payload: any = verify(accessToken, "access_secret");
+
+//       if(!payload) {
+//           return res.status(401).send({
+//               message: 'Unauthenticated'
+//           })
+//       }
+
+//       const user = await getRepository(Users).findOne({
+//           where: {
+//               id: payload.id
+//           }
+//       });
+
+//       if (!user) {
+//           return res.status(401).send({
+//               message: 'Unauthenticated'
+//           })
+//       }
+
+//       const {password, ...data} = user;
+
+//       res.send(data);
+
+//   }catch(e) {
+//       console.log(e)
+//       return res.status(401).send({
+//           message: 'Unauthenticated'
+//       })
+//   }
+// }
+
+
+// export const Refresh = async (req: Request, res: Response) => {
+//   try {
+//       const refreshToken = req.cookies['refreshToken'];
+
+//       const payload: any = verify(refreshToken, "refresh_secret");
+
+//       if (!payload) {
+//           return res.status(401).send({
+//               message: 'unauthenticated'
+//           })
+//       }
+
+//       const accessToken = sign({
+//           id: payload.id,
+//       }, "access_secret", { expiresIn: 60 * 60 })
+
+//       res.cookie('accessToken', accessToken, {
+//           httpOnly: true,
+//           maxAge: 24 * 60 * 60 * 1000 //equivalent to 1 day
+//       });
+
+//       res.send({
+//           message: 'success'
+//       })
+
+//   }catch(e) {
+//       return res.status(401).send({
+//           message: 'unauthenticated'
+//       })
+//   }
+// }
