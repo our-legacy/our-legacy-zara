@@ -1,30 +1,86 @@
-import cookieParser from 'cookie-parser';
-import express, {Express} from 'express';
-import cors from 'cors';
-import { createConnection } from 'typeorm';
-import  routes  from './routes';
-import morgan from "morgan";
+import "reflect-metadata";
+import express, { Request, Response } from "express";
+import cors from "cors";
+import connection from "./Connection/connection";
+import data from "./Connection/Data.json"
 
-createConnection().then(() => {
-    const app: Express = express();
-    const port = 7000;
-    app.use(express.json());
-    app.use(morgan("dev"))
-    app.use(cookieParser());
-    app.use(cors({
-        origin: ['http://localhost:3000', 'http://localhost:8080', 'http://localhost:4200'],
-        credentials: true
-    }));
+import userRoute from "./route/user";
+import routerP from "./route/products"
+import cartRoute from "./route/cart"
+import {Products} from "./models/Products"
 
-    app.use('/api', routes);
-    app.get("/", (req, res) => {
-        res.send("hh")
-    })
+const app = express();
 
-    app.listen(port, () => {
-        console.log(`Listening to port ${port}`);
-    })
-})
+app.use(express.json());
+app.use(cors());
+
+
+app.use("/auth", userRoute);
+app.use("/products", routerP)
+app.use("/cart", cartRoute)
+
+app.get("/", (req: Request, res: Response): Response => {
+  return res.json({ message: "Sequelize Example 🤟" });
+});
 
 
 
+
+const start = async (): Promise<void> => {
+    try {
+      await connection.sync();
+      app.listen(3000, () => {
+        console.log("Server started on port 3000");
+      });
+    } catch (error) {
+      console.error(error);
+      process.exit(1);
+    }
+  };
+
+//   connection.sync().then(() => {
+//     app.listen(3000, () => {
+//       console.log("Server is running on port 3000");
+//     });
+//   }).then(() => {
+//     async function insertDummyData() {
+//       try {
+//         // Iterate over the data array
+//         for (const product of data) {
+//           const { name, image, price, quantity, gender, category, description } = product;
+    
+//           // Check if a similar entry already exists
+//           const existingProduct = await Products.findOne({
+//             where: {
+//               name,
+//               gender,
+//               category,
+//             },
+//           });
+    
+//           if (!existingProduct) {
+//             // No similar entry found, proceed with insertion
+//             await Products.create<any>({
+//               name,
+//               image,
+//               price,
+//               quantity,
+//               gender,
+//               category,
+//               description,
+//             });
+//             console.log('Product inserted successfully');
+//           } else {
+//             console.log('Similar entry already exists');
+//           }
+//         }
+//       } catch (error) {
+//         console.log(`Error: ${error}`);
+//       }
+//     }
+    
+//     // Call the function to insert dummy data
+//     insertDummyData();
+//   })
+
+void start();
