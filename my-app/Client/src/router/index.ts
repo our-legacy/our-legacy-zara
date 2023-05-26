@@ -6,20 +6,24 @@ import login from '../components/Login.vue'
 import signup from '../components/Signup.vue'
 import onePost from '../components/onePost.vue'
 const routes = [
+
   { path: "/home", component: Home },
   { path: '/login', component: login },
   { path: '/signup', component: signup },
   { path: '/women/bag', component: onePost },
+  { path: '/women/skirt', component: onePost },
+  { path: '/women/perfume', component: onePost },
+  { path: '/women/shoes', component: onePost },
+  { path: '/women/top', component: onePost },
+  { path: '/men/jeans', component: onePost },
+  { path: '/women/jeans', component: onePost },
+  { path: '/men/shoes', component: onePost },
+  { path: '/men/perfume', component: onePost },
+  { path: '/men/shirts', component: onePost },
   { path: '/products/men', component: onePost },
   { path: '/products/products', component: onePost },
   { path:"/cart", component: Cart}
 
- 
- 
-
-
- 
- 
 ]  
 
 
