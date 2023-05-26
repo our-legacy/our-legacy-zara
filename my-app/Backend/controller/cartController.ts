@@ -1,17 +1,7 @@
 import { Request, Response } from 'express';
 import {Cart} from "../models/Cart"
 
-const allCarts = async (req: Request, res: Response) => {
-  try {
-    const carts = await Cart.findAll();
-    res.json(carts);
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ error: 'Internal server error' });
-  }
-};
-
-const cartForUser = async (req: Request, res: Response) => {
+const getCart = async (req: Request, res: Response) => {
   const userId = req.params.id;
 
   try {
@@ -41,40 +31,22 @@ const toCart = async (req: Request, res: Response) => {
   }
 };
 
-const remove = async (req: Request, res: Response) => {
-  const cartId = req.params.id;
+const deleteCart= async(req: Request, res: Response)=>{
+  const prodID = req.params.prod;
+  const userID = req.params.user;
 
   try {
     await Cart.destroy({
-      where: {
-        id: cartId,
-      },
-    });
-    res.json('Deleted');
-  } catch (error) {
-    res.status(500).json({ error: 'Internal server error' });
-  }
-};
-
-const removeCartOfUser = async (req: Request, res: Response) => {
-  const userId = Number(req.params.id);
-
-  try {
-    await Cart.destroy<any>({
-      where: {
-        user_id: userId,
-      },
-    });
-    res.json('Deleted');
-  } catch (error) {
-    res.status(500).json({ error: 'Internal server error' });
-  }
-};
+    where: { products_id: prodID, users_id: userID }
+  })
+} catch (error) {
+  console.log(error)
+  res.json({ message: 'Cart item deleted' })
+}
+}
 
 export default {
-  allCarts,
-  cartForUser,
-  toCart,
-  remove,
-  removeCartOfUser,
+getCart,
+toCart,
+deleteCart,
 };
