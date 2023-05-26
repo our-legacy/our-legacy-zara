@@ -28,7 +28,7 @@ export const userLogin = async (req: Request, res: Response) => {
   
     const user:any = await Users.findOne({ where: { email} });
     // console.log(user)
-    if (!user) {
+    if (!user) { 
       return res.status(400).send({
           message: 'Invalid Credentials '
       })

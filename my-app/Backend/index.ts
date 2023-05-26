@@ -8,7 +8,7 @@ import data from "./Connection/Data.json"
 import userRoute from "./route/user";
 import routerP from "./route/products"
 import cartRoute from "./route/cart"
-import adminroute from "./route/Admin"
+// import adminroute from "./route/Admin"
 import {Products} from "./models/Products"
 
 const app = express();
@@ -20,7 +20,7 @@ app.use(cors());
 app.use("/auth", userRoute);
 app.use("/products", routerP)
 app.use("/cart", cartRoute)
-app.use ("/admin",adminroute)
+// app.use ("/admin",adminroute)
 
 app.get("/", (req: Request, res: Response): Response => {
   return res.json({ message: "Sequelize Example 🤟" });

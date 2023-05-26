@@ -69,7 +69,7 @@ export default {
 
         if (loginSuccess) {
             alert("welcome to zara")
-          this.$router.push('/');
+          this.$router.push('/home');
         } else {
           console.error('Login failed.');
         }

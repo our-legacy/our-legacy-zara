@@ -17,8 +17,9 @@
                 Search
               </b-nav-item>
             </div>
-            <div class="nav-item">
-              <b-nav-item href="/login" class="font-sans text-lg mr-3">
+              
+            <div class="nav-item" >
+              <b-nav-item   @click="handleLoginClick" class="font-sans text-lg mr-3">
                 SIGN IN
               </b-nav-item>
             </div>
@@ -38,7 +39,15 @@
     </b-navbar>
   </div>
 </template>
-
+<script>
+export default {
+  methods: {
+    handleLoginClick() {
+      this.$router.push('/login');
+    },
+  },
+};
+</script>
 <style scoped>
 .louka {
   width: 50px;
