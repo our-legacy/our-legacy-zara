@@ -1,9 +1,9 @@
 import "reflect-metadata";
+import cookieParser from 'cookie-parser' ;
 import express, { Request, Response } from "express";
 import cors from "cors";
 import connection from "./Connection/connection";
 import data from "./Connection/Data.json"
-import cookieParser from 'cookie-parser'
 import userRoute from "./route/user";
 import routerP from "./route/products"
 import cartRoute from "./route/cart"

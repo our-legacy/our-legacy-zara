@@ -9,6 +9,7 @@
           </span>
           <span class="mb-3 text-right details" style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; padding-right: 20px; padding-top: 5px;">
             ${{ e.price }}
+         
           </span>
         </div>
       </div>
@@ -52,6 +53,6 @@ export default {
 }
 
 .mb-4 {
-  margin-bottom: 1rem;
+  margin-bottom: 4rem;
 }
 </style>
