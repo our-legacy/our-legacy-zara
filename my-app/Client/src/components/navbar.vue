@@ -41,6 +41,9 @@
 </template>
 <script>
 export default {
+  components: {
+    Sidebar,
+  },
   methods: {
     handleLoginClick() {
       this.$router.push('/login');
@@ -48,6 +51,8 @@ export default {
   },
 };
 </script>
+
+
 <style scoped>
 .louka {
   width: 50px;
@@ -55,6 +60,7 @@ export default {
 
 .malouka {
   width: 20%;
+  margin-left:100px
 }
 
 .navbares {

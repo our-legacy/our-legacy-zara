@@ -9,7 +9,7 @@ const connection = new Sequelize({
   dialect: "mysql",
   host: "localhost",
   username: "root",
-  password: "1919",
+  password: "root",
   database: "zara",
   logging: false,
   models: [Users, Products, Cart,Admin],
