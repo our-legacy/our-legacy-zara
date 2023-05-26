@@ -59,7 +59,7 @@ export default {
             password: this.password
           })
           .then((suc) => {
-            this.$router.push("/loginAdmin");
+            this.$router.push("/adminlog");
             console.log(suc);
           })
           .catch((err) => console.log(err));
