@@ -4,31 +4,15 @@ import Home from "../components/Home.vue"
 import login from '../components/Login.vue'
 import signup from '../components/Signup.vue'
 import onePost from '../components/onePost.vue'
-const routes=[    //call the components here
- {
-    path: "/home",
-     component: Home
- },
-//  {path:"/WomenBlazer",
-//  component: WomenBlazer},    
-{
-    path: '/login',
-    component: login
-  },
-  {
-    path:'/signup',
-    component:signup
-  },
-  { path:'/products/women ',
-  component: onePost
-  },
-  { path:'/products/men ',
-  component: onePost
-  },
-  { path:'/products/',
-  component: onePost
-  }
-]  
+const routes = [
+  { path: "/home", component: Home },
+  { path: '/login', component: login },
+  { path: '/signup', component: signup },
+  { path: '/women/shirts', component: onePost },
+  { path: '/products/men', component: onePost },
+  { path: '/products/products', component: onePost }
+  // Other routes
+]; 
 
 
 const router = createRouter({

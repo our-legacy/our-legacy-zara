@@ -42,7 +42,7 @@ export default {
     fetchData() {
       axios
         .get(
-          `http://localhost:4001/zara/product/${this.gender}/${this.category}`
+          `http://localhost:3000/products/${this.gender}/${this.category}`
         )
         .then((res) => {
           this.data = res.data;
