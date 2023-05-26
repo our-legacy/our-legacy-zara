@@ -5,7 +5,7 @@
 <template>
 
 
-    <router-link to="/details">women beauty</router-link>
+    <!-- <router-link to="/details">women beauty</router-link> -->
   
  <router-view/>
 
