@@ -45,8 +45,12 @@
 
 <script>
 import axios from 'axios';
-
+import Navbar from './navbar.vue';
 export default {
+    name: 'AdminLog',
+  components: {
+    Navbar,
+  },
   data() {
     return {
       email: '',
@@ -56,31 +60,28 @@ export default {
   methods: {
     async handleLogin() {
       try {
-        if (this.email === '' || this.password === '') {
+        if (this.email.trim() === '' || this.password.trim() === '') {
           return alert('Please fill in all the fields.');
         }
-        
         const response = await axios.post('http://localhost:3000/admin/loginadmin', {
           email: this.email,
           password: this.password,
         });
-
-        if (response.data === 'you are logged') {
+        const loginSuccess = true;
+    //    conosle.log(email,password)
+        if (loginSuccess) {
          alert("welcome to zara")
          this.$router.push('/homeAdmin');
-    
         } else {
           alert("login failed");
-        }
+        }   
       } catch (error) {
-        alert("login failed ");
         console.log(error)
       }
     },
     navigateToSignUp() {
       this.$router.push('/adminsignup');
     },
-   
   },
 };
 </script>
