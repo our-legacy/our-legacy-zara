@@ -2,7 +2,7 @@ import {createRouter, createWebHistory} from "vue-router";
 //import the components he
 import Home from "../components/Home.vue"
 
-const routes=[    //call the components here
+const routes =[    //call the components here
  {
     path: "/home",
      component: Home
