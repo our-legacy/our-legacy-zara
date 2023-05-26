@@ -15,6 +15,7 @@ const controller = {
     Products.findAll()
       .then((results) => res.json(results))
       .catch((err) => res.status(500).send(err))
+      
   },
   getAllShirts: function (req: Request, res: Response) {
     Products.findAll({where: { gender: "women", category: "shirts" }}) 

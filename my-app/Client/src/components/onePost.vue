@@ -42,10 +42,11 @@ export default {
     fetchData() {
       axios
         .get(
-          `http://localhost:3000/products/${this.gender}/${this.category}`
+          `http://localhost:4000/products/${this.gender}/${this.category}`
         )
         .then((res) => {
           this.data = res.data;
+          console.log(res.data)
         })
         .catch((err) => {
           console.log(err);
