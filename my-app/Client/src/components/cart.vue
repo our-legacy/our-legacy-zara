@@ -1,151 +1,184 @@
 <template>
-  <div class="shopping-cart">
-    <div id="cart">Cart</div>
-    <div class="column-labels">
-      <div class="product-image">Image</div>
-      <div class="product-details">Product</div>
-      <div class="product-price">Price</div>
-      <div class="product-quantity">Quantity</div>
-      <div class="product-removal">Remove</div>
-    </div>
-    <div v-for="product in data" :key="product.products_id" class="product">
-      <div class="product-image">
-        <img :src="product.image" :alt="product.name" />
-      </div>
-      <div class="product-details">
-        <div class="product-title">{{ product.name }}</div>
-        <p class="product-description">{{ product.description }}</p>
-      </div>
-      <div class="product-price">${{ product.price }}</div>
-      <div class="product-quantity">
-        <button @click="decreaseQuantity(product)">-</button>
-        <input type="number" value="1" min="1"/>
-        <button @click="increaseQuantity(product)">+</button>
-      </div>
-      <div class="product-removal">
-        <button class="remove-product" @click="handleDelete(product.products_id)">
-          Remove
-        </button>
+  <section style="background-color: white">
+    <div class="card-body">
+      <div class="row">
+        <div class="text-center">
+          <br />
+          <br />
+          <br />
+          <h1 style="font-size: 15px; width: 40px; height: 40px; margin-top: 150px; padding-left: 120px; text-decoration-line: underline; text-align: center;">
+            Cart
+          </h1>
+        </div>
       </div>
     </div>
-  </div>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div v-for="item in data" :key="item.products_id" class="col-md-12 col-lg-4 mb-4">
+          <div class="card h-100">
+            <img :src="item.image" :alt="item.name" class="w-100" />
+            <div class="card-body d-flex flex-row justify-content-between p-0 pt-1.5">
+              <span class="card-title mb-3 text-left details" style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; padding-left: 20px; padding-top: 5px;">
+                {{ item.name }}
+              </span>
+              <span class="mb-3 text-right details" style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; padding-right: 20px; padding-top: 5px;">
+                ${{ item.price * item.productQuantity }}
+              </span>
+            </div>
+            <div style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; text-align: right; padding-right: 20px; padding-bottom: 5px;" @click="handleDelete(item.products_id)">
+              DELETE
+            </div>
+            <br>
+            <div class="qty-input" >
+              <button class="qty-count qty-count--minus" data-action="minus" type="button" @click="decrementQuantity(item)">-</button>
+              <input class="product-qty" type="number" name="product-qty" min="1" max="10" v-model="item.productQuantity">
+              <button class="qty-count qty-count--add" data-action="add" type="button" @click="incrementQuantity(item)">+</button>
+            </div>
+            <br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script lang="ts">
-import axios from "axios";
+import axios from 'axios';
+import { defineComponent, ref, onMounted } from 'vue';
 
-interface Product {
-  products_id: number;
-  image: string;
-  name: string;
-  price: number;
-  quantity: number;
-}
-
-export default {
-  name: "Cart",
+export default defineComponent({
   data() {
     return {
+      show: false,
       data: [],
+      tracker: false,
     };
   },
   methods: {
     fetchData() {
       axios
-        .get<Product[]>("http://localhost:3000/products/products")
+        .get('http://localhost:3000/products/products')
         .then((res) => {
-          this.data = res.data;
+          this.data = res.data.map((item) => ({
+            ...item,
+            productQuantity: 1, 
+          }));
         })
         .catch((err) => {
           console.log(err);
         });
     },
-    handleDelete(prod: number) {
-      axios
-        .delete(`http://localhost:4001/zara/cart/delete/${prod}/1`)
+    handleDelete(prodId: number) {
+      axios.delete(`http://localhost:4001/zara/cart/delete/${prodId}/1`)
         .then(() => {
-          this.fetchData();
+          window.location.reload();
         })
         .catch((err) => {
           console.log(err);
         });
     },
-    increaseQuantity(product: Product) {
-      product.quantity++;
+    incrementQuantity(item) {
+      item.productQuantity += 1; 
     },
-    decreaseQuantity(product: Product) {
-      if (product.quantity > 1) {
-        product.quantity--;
+    decrementQuantity(item) {
+      if (item.productQuantity > 1) {
+        item.productQuantity -= 1; 
       }
     },
   },
   mounted() {
     this.fetchData();
   },
-};
+});
 </script>
 
-<style>
-#cart {
-  font-size: 20px;
-  width: 40px;
-  height: 40px;
-  margin-top: 100px;
-  padding-left: 2px;
-  text-decoration-line: underline;
-  text-align: center;
-}
-
-.shopping-cart {
-  margin-top: 20px;
-  background-color: #f8f8f8;
-  padding: 20px;
-  border-radius: 4px;
-}
-
-.column-labels {
-  display: grid;
-  grid-template-columns: 2fr 6fr 1fr 1fr 1fr;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
-.product {
-  display: grid;
-  grid-template-columns: 2fr 6fr 1fr 1fr 1fr;
-  gap: 10px;
+<style >
+.qty-input {
+  color: #000;
+  background: #fff;
+  display: flex;
   align-items: center;
-  margin-bottom: 10px;
-}
-
-.product-image img {
-  max-width: 300px;
-  max-height: 300px;
-}
-
-.product-quantity input {
-  width: 40px;
+  overflow: hidden;
   text-align: center;
 }
 
-.product-quantity button {
-  width: 30px;
-  height: 30px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.remove-product button {
-  background-color: #f44336;
-  color: #fff;
+.qty-input .product-qty,
+.qty-input .qty-count {
+  background: transparent;
+  color: inherit;
+  font-weight: bold;
+  font-size: inherit;
   border: none;
-  border-radius: 4px;
-  padding: 6px 10px;
-  font-size: 14px;
-  cursor: pointer;
+  display: inline-block;
+  min-width: 0;
+  height: 2.5rem;
+  line-height: 1;
 }
 
-.remove-product button:hover {
-  background-color: #d32f2f;
+.qty-input .product-qty {
+  width: 50px;
+  min-width: 0;
+  display: inline-block;
+  text-align: center;
+  appearance: textfield;
+}
+
+.qty-input .product-qty::-webkit-outer-spin-button,
+.qty-input .product-qty::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+.qty-input .qty-count {
+  padding: 0;
+  cursor: pointer;
+  width: 2.5rem;
+  font-size: 1.25em;
+  text-indent: -100px;
+  overflow: hidden;
+  position: relative;
+}
+
+.qty-input .qty-count:before,
+.qty-input .qty-count:after {
+  content: "";
+  height: 2px;
+  width: 10px;
+  position: absolute;
+  display: block;
+  background: #000;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.qty-input .qty-count--minus {
+  border-right: 1px solid #e2e2e2;
+}
+
+.qty-input .qty-count--add {
+  border-left: 1px solid #e2e2e2;
+}
+
+.qty-input .qty-count--add:after {
+  transform: rotate(90deg);
+}
+
+.qty-input .qty-count:disabled {
+  color: #ccc;
+  background: #f2f2f2;
+  cursor: not-allowed;
+  border-color: transparent;
+}
+
+.qty-input {
+  border-radius: 4px;
+  /* transform: scale(1);  */
+  width: 50px;
+  height: 35px;
+  margin-left:340px;
+  margin: bottom;
 }
 </style>
