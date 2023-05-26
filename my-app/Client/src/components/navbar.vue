@@ -39,6 +39,16 @@
   </div>
 </template>
 
+<script>
+import Sidebar from "../components/sidebar.vue";
+
+export default {
+  components: {
+    Sidebar,
+  },
+};
+</script>
+
 <style scoped>
 .louka {
   width: 50px;
