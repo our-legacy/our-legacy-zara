@@ -69,6 +69,7 @@ export default {
 
         if (loginSuccess) {
             alert("welcome to zara")
+            window.localStorage.setItem("token", JSON.stringify(response.data));
           this.$router.push('/');
         } else {
           console.error('Login failed.');
