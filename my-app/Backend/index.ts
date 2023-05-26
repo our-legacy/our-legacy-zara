@@ -1,4 +1,5 @@
 import "reflect-metadata";
+import cookieParser from 'cookie-parser';
 import express, { Request, Response } from "express";
 import cors from "cors";
 import connection from "./Connection/connection";
@@ -13,7 +14,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
-
+  app.use(cookieParser());
 
 app.use("/auth", userRoute);
 app.use("/products", routerP)
