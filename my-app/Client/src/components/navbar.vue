@@ -56,6 +56,7 @@ export default {
 
 .malouka {
   width: 20%;
+  margin-left:100px
 }
 
 .navbares {
