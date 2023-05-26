@@ -17,12 +17,12 @@ export const adminLogin = async (req: Request, res: Response) => {
     const { email, password } = req.body;
     // console.log(req.body)
    const admins:any = await Admin.findOne({ where: { email} });
-      // console.log(admins)
+    //   console.log(admins)
       if (!admins) { 
         return res.status(400).send({
             message: 'Invalid Credentials '
         })
-    }
+    } 
     const matchedPassword = await bcryptjs.compare(
       password as string,
       admins.dataValues.password as string
@@ -30,8 +30,8 @@ export const adminLogin = async (req: Request, res: Response) => {
     if (matchedPassword) {
       const token = jwt.sign(
         {
-          userId: admins.id,
-          userEmail: admins.email
+          adminId: admins.id,
+          adminEmail: admins.email 
         },
         "123"
       );
