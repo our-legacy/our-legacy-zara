@@ -12,6 +12,7 @@
     "@chakra-ui/vue": "^0.13.1",
     "autoprefixer": "^10.4.14",
     "axios": "^1.4.0",
+    "boostrap": "^2.0.0",
     "bootstrap": "^5.2.3",
     "mdb-react-ui-kit": "^6.0.0",
     "mdb-vue-ui-kit": "^4.0.0",

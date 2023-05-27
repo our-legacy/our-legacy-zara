@@ -4,7 +4,6 @@ import express, { Request, Response } from "express";
 import cors from "cors";
 import connection from "./Connection/connection";
 import data from "./Connection/Data.json"
-
 import userRoute from "./route/user";
 import routerP from "./route/products"
 import cartRoute from "./route/cart"
@@ -14,8 +13,8 @@ import {Products} from "./models/Products"
 const app = express();
 app.use(express.json());
 app.use(cors());
-  app.use(cookieParser());
 
+app.use(cookieParser());
 app.use("/auth", userRoute);
 app.use("/products", routerP)
 app.use("/cart", cartRoute)

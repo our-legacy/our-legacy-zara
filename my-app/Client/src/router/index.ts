@@ -1,6 +1,10 @@
 import {createRouter, createWebHistory} from "vue-router";
-//import the components he
+
 import Home from "../components/Home.vue"
+import search from "../components/search/search.vue"
+import details from "../components/details/details.vue"
+
+  
 import Cart from "../components/cart.vue" 
 import homeAdmin from "../components/AdminHome.vue"
 import login from '../components/Login.vue'
@@ -10,6 +14,8 @@ import adminlog from '../components/Adminlog.vue'
 import onePost from '../components/onePost.vue'
 const routes = [
 
+  {path: "/search",component: search},
+  {path: "/details",component: details},
   { path: "/home", component: Home },
   { path: '/login', component: login },
   { path: '/signup', component: signup },
@@ -26,11 +32,9 @@ const routes = [
   { path: '/products/men', component: onePost },
   { path: '/products/products', component: onePost },
   { path:"/cart", component: Cart},
- {path: "//homeAdmin", component: homeAdmin},   
+  {path: "//homeAdmin", component: homeAdmin},   
   {path:'/adminsignup',component:adminsign },
   { path:'/adminlog',component:adminlog},
-
-  
 ]  
 
 
