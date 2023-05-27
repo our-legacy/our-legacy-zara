@@ -1,4 +1,5 @@
 <template>
+  <Navbar />
   <div class="center-container" style="margin-top: 150px;">
     <div v-for="e in data" :key="e.id" class="col-md-12 col-lg-4 mb-4">
       <div class="card h-100">
@@ -17,6 +18,7 @@
 </template>
 
 <script>
+import Navbar from "../navbar.vue"
 import axios from "axios";
 
 export default {

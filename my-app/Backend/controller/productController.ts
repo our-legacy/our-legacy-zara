@@ -18,12 +18,12 @@ const controller = {
       
   },
   getAllShirts: function (req: Request, res: Response) {
-    Products.findAll({where: { gender: "women", category: "shirts" }}) 
+    Products.findAll({where: { gender: "women", category: "shirt" }}) 
     .then((results) => res.json(results))
     .catch((err) => res.status(500).send(err))
   },
   getAllShirtsM: function (req: Request, res: Response) {
-    Products.findAll({where: { gender: "men", category: "shirts" }}) 
+    Products.findAll({where: { gender: "men", category: "shirt" }}) 
     .then((results) => res.json(results))
     .catch((err) => res.status(500).send(err))
   },
@@ -38,7 +38,7 @@ const controller = {
     .catch((err) => res.status(500).send(err))
   },
   getAllPerfumeM: function (req: Request, res: Response) {
-    Products.findAll({where: { gender: "men", category: "perfume" }}) 
+    Products.findAll({where: { gender: "men", category: "PERFUME" }}) 
     .then((results) => res.json(results))
     .catch((err) => res.status(500).send(err))
   },
@@ -63,7 +63,7 @@ const controller = {
     .catch((err) => res.status(500).send(err))
   },
   getAllSkirt: function (req: Request, res: Response) {
-    Products.findAll({where: { gender: "women", category: "skirt" }}) 
+    Products.findAll({where: { gender: "women", category: "skirts" }}) 
     .then((results) => res.json(results))
     .catch((err) => res.status(500).send(err))
   },

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Navbar />
     <MDBContainer style="margin-top: 150px">
       <MDBRow class="justify-content-center">
         <MDBCol v-for="e in data" :key="e.id" md="12" lg="4" class="mb-4">
@@ -21,6 +22,7 @@
 </template>
 
 <script>
+import Navbar from "../components/navbar.vue"
 import axios from "axios";
 import {
   MDBContainer,
