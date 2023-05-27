@@ -132,7 +132,7 @@ export default defineComponent({
   methods: {
     fetchData(): void {
       axios
-        .get<CartItem[]>(`http://localhost:3000/cart/${currentUser.id}`)
+        .get<CartItem[]>(`http://localhost:4000/cart/1`)
         .then((res) => {
           this.data = res.data.map((item) => ({
             ...item,
@@ -145,7 +145,7 @@ export default defineComponent({
     },
     handleDelete(prodId: number): void {
       axios
-        .delete(`http://localhost:3000/cart/delete/${prodId}/${currentUser.id}`)
+        .delete(`http://localhost:4000/cart/delete/${prodId}/${currentUser.id}`)
         .then(() => {
           window.location.reload();
         })
@@ -168,7 +168,7 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
+<style >
 .qty-input {
   color: #000;
   background: #fff;

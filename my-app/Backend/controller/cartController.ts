@@ -1,27 +1,44 @@
 import { Request, Response } from 'express';
 import {Cart} from "../models/Cart"
+import {Products} from "../models/Products"
+
 
 const getCart = async (req: Request, res: Response) => {
   const userId = req.params.id;
-
   try {
-    const carts = await Cart.findAll<any>({
+    const carts = await Cart.findAll({
       where: {
-        user_id: userId,
+        users_id: userId,
       },
     });
-    res.json(carts);
+
+    const productIds = carts.map(cart => cart.products_id);
+    const products = await Products.findAll({
+      where: {
+        id: productIds,
+      },
+      attributes: [
+        'name',
+        'gender',
+        'category',
+        'quantity',
+        'price',
+        'image',
+        'description',
+      ],
+    });
+    res.json(products);
   } catch (error) {
     res.status(500).json({ error: 'Internal server error' });
   }
 };
 
 const toCart = async (req: Request, res: Response) => {
-  const { user_id, products_id } = req.body;
+  const { users_id, products_id } = req.body;
 
   try {
     await Cart.create<any>({
-      user_id,
+      users_id,
       products_id,
     });
     res.json({ message: 'Product successfully added to your cart' });
