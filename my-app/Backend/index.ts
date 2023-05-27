@@ -7,6 +7,7 @@ import data from "./Connection/Data.json"
 import userRoute from "./route/user";
 import routerP from "./route/products"
 import cartRoute from "./route/cart"
+import adminRoute from "./route/Admin"
 import {Products} from "./models/Products"
 
 const app = express();
@@ -18,6 +19,7 @@ app.use(cookieParser());
 app.use("/auth", userRoute);
 app.use("/products", routerP)
 app.use("/cart", cartRoute)
+app.use ("/admin",adminRoute)
 
 app.get("/", (req: Request, res: Response): Response => {
   return res.json({ message: "Sequelize Example 🤟" });
@@ -29,7 +31,7 @@ app.get("/", (req: Request, res: Response): Response => {
 const start = async (): Promise<void> => {
     try {
       await connection.sync();
-      app.listen(3000, () => {
+      app.listen(4000, () => {
         console.log("Server started on port 3000");
       });
     } catch (error) {

@@ -43,6 +43,10 @@
     border: none">
     <router-link to="/details">   Collection</router-link>
              
+              
+            <div class="nav-item" >
+              <b-nav-item   @click="handleLoginClick" class="font-sans text-lg mr-3">
+                SIGN IN
               </b-nav-item>
             </div>
             <div class="nav-item">
@@ -63,16 +67,19 @@
     </b-navbar>
   </div>
 </template>
-
 <script>
-import Sidebar from "../components/sidebar.vue";
-
 export default {
   components: {
     Sidebar,
   },
+  methods: {
+    handleLoginClick() {
+      this.$router.push('/login');
+    },
+  },
 };
 </script>
+
 
 <style scoped>
 
