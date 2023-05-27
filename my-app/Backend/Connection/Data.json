@@ -303,7 +303,7 @@
       "description": "We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products. The Green to Wear 2.0 standard aims to minimise the environmental impact of textile manufacturing. To that end, we have developed Inditex’s The List programme, which helps guarantee both that production processes are clean and that our garments are safe and healthy. "
     },
     {
-      "id": "e",
+     
       "name": "JACQUARD CROP TOP",
       "image": "https://static.zara.net/photos///2022/V/0/1/p/5039/599/119/2/w/908/5039599119_1_1_1.jpg?ts=1645187990201",
       "price": 2599,
@@ -500,7 +500,7 @@
       "quantity": 120,
       "gender": "Women",
       "category": "perfume",
-      "description": "ALCOHOL DENAT. · PARFUM · LINALOOL · LIMONENE · HEXYL CINNAMAL · GERANIOL · EUGENOL · COUMARIN · CITRONELLOL · CINNAMYL ALCOHOL · BHT · BENZYL SALICYLATE · BENZYL BENZOATE · BENZYL ALCOHOL · AQUA"
+      "description": "ALCOHOL DENAT. PARFUM LINALOOL LIMONENE HEXYL CINNAMAL GERANIOL EUGENOL COUMARIN CITRONELLOL CINNAMYL ALCOHOL BHT BENZYL SALICYLATE BENZYL BENZOATE BENZYL ALCOHOL AQUA"
     },
     {
   
@@ -510,7 +510,7 @@
       "quantity": 120,
       "gender": "Women",
       "category": "perfume",
-      "description": "ALCOHOL DENAT. · PARFUM · LINALOOL · LIMONENE · HEXYL CINNAMAL · GERANIOL · EUGENOL · COUMARIN · CITRONELLOL · CINNAMYL ALCOHOL · BHT · BENZYL SALICYLATE · BENZYL BENZOATE · BENZYL ALCOHOL · AQUA"
+      "description": "ALCOHOL DENAT. PARFUM LINALOOL LIMONENE HEXYL CINNAMAL GERANIOL EUGENOL COUMARIN CITRONELLOL CINNAMYL ALCOHOL BHT BENZYL SALICYLATE BENZYL BENZOATE BENZYL ALCOHOL AQUA"
     },
     {
      
@@ -520,7 +520,7 @@
       "quantity": 120,
       "gender": "Women",
       "category": "perfume",
-      "description": "ALCOHOL DENAT. · PARFUM · LINALOOL · LIMONENE · HEXYL CINNAMAL · GERANIOL · EUGENOL · COUMARIN · CITRONELLOL · CINNAMYL ALCOHOL · BHT · BENZYL SALICYLATE · BENZYL BENZOATE · BENZYL ALCOHOL · AQUA"
+      "description": "ALCOHOL DENAT. PARFUM LINALOOL LIMONENE HEXYL CINNAMAL GERANIOL EUGENOL COUMARIN CITRONELLOL CINNAMYL ALCOHOL BHT BENZYL SALICYLATE BENZYL BENZOATE BENZYL ALCOHOL AQUA"
     },
     {
    
@@ -530,7 +530,7 @@
       "quantity": 120,
       "gender": "Women",
       "category": "perfume",
-      "description": "ALCOHOL DENAT. · PARFUM · LINALOOL · LIMONENE · HEXYL CINNAMAL · GERANIOL · EUGENOL · COUMARIN · CITRONELLOL · CINNAMYL ALCOHOL · BHT · BENZYL SALICYLATE · BENZYL BENZOATE · BENZYL ALCOHOL · AQUA"
+      "description": "ALCOHOL DENAT. PARFUM LINALOOL LIMONENE HEXYL CINNAMAL GERANIOL EUGENOL COUMARIN CITRONELLOL CINNAMYL ALCOHOL BHT BENZYL SALICYLATE BENZYL BENZOATE BENZYL ALCOHOL AQUA"
     },
     {
       
@@ -540,7 +540,7 @@
       "quantity": 120,
       "gender": "Women",
       "category": "perfume",
-      "description": "ALCOHOL DENAT. · PARFUM · LINALOOL · LIMONENE · HEXYL CINNAMAL · GERANIOL · EUGENOL · COUMARIN · CITRONELLOL · CINNAMYL ALCOHOL · BHT · BENZYL SALICYLATE · BENZYL BENZOATE · BENZYL ALCOHOL · AQUA"
+      "description": "ALCOHOL DENAT. PARFUM LINALOOL LIMONENE HEXYL CINNAMAL GERANIOL EUGENOL COUMARIN CITRONELLOL CINNAMYL ALCOHOL BHT BENZYL SALICYLATE BENZYL BENZOATE BENZYL ALCOHOL AQUA"
     },
     {
       
@@ -661,5 +661,55 @@
       "gender": "kids",
       "category": "shirt",
       "description": "SNEAKERS WITH MATCHING TOPSTITCHING DETAIL ON THE UPPER AND CONTRAST PIECE ON THE BACK. SEVEN-EYELET FACING. WHITE SOLE."
+    },
+    {
+       
+      "name": "FLEUR DE PATCHOULI 90ML / 3.04 OZ",
+      "image": "https://static.zara.net/photos///2022/V/2/1/p/0110/105/999/2/w/670/0110105999_6_1_1.jpg?ts=1642436873366",
+      "price": 2809,
+      "quantity": 120,
+      "gender": "Women",
+      "category": "perfume",
+      "description": "ALCOHOL DENAT. PARFUM LINALOOL LIMONENE HEXYL CINNAMAL GERANIOL EUGENOL COUMARIN CITRONELLOL CINNAMYL ALCOHOL BHT BENZYL SALICYLATE BENZYL BENZOATE BENZYL ALCOHOL AQUA"
+    },
+    {
+  
+      "name": "VETIVER PAMPLEMOUSSE 40ML / 1.35 OZ",
+      "image": "https://static.zara.net/photos///2022/V/2/1/p/0110/156/999/2/w/670/0110156999_6_1_1.jpg?ts=1642605478157",
+      "price": 1909,
+      "quantity": 120,
+      "gender": "Women",
+      "category": "perfume",
+      "description": "ALCOHOL DENAT. PARFUM LINALOOL LIMONENE HEXYL CINNAMAL GERANIOL EUGENOL COUMARIN CITRONELLOL CINNAMYL ALCOHOL BHT BENZYL SALICYLATE BENZYL BENZOATE BENZYL ALCOHOL AQUA"
+    },
+    {
+     
+      "name": "AMALFI SUNRAY 40ML / 1.35 OZ",
+      "image": "https://static.zara.net/photos///2021/V/2/1/p/0120/425/999/2/w/760/0120425999_6_1_1.jpg?ts=1610615598048",
+      "price": 2499,
+      "quantity": 120,
+      "gender": "Women",
+      "category": "perfume",
+      "description": "ALCOHOL DENAT. PARFUM LINALOOL LIMONENE HEXYL CINNAMAL GERANIOL EUGENOL COUMARIN CITRONELLOL CINNAMYL ALCOHOL BHT BENZYL SALICYLATE BENZYL BENZOATE BENZYL ALCOHOL AQUA"
+    },
+    {
+   
+      "name": "BOHEMIAN BLUEBELLS 10ML / 0.34 OZ",
+      "image": "https://static.zara.net/photos///2022/V/2/1/p/0110/124/999/2/w/670/0110124999_6_1_1.jpg?ts=1642436961269",
+      "price": 4599,
+      "quantity": 120,
+      "gender": "Women",
+      "category": "perfume",
+      "description": "ALCOHOL DENAT. PARFUM LINALOOL LIMONENE HEXYL CINNAMAL GERANIOL EUGENOL COUMARIN CITRONELLOL CINNAMYL ALCOHOL BHT BENZYL SALICYLATE BENZYL BENZOATE BENZYL ALCOHOL AQUA"
+    },
+    {
+      
+      "name": "PINK FLAMBÉ 200 ML / 6.76 OZ",
+      "image": "https://static.zara.net/photos///2021/I/2/1/p/0140/015/999/2/w/670/0140015999_6_1_1.jpg?ts=1626769255506",
+      "price": 4199,
+      "quantity": 120,
+      "gender": "Women",
+      "category": "perfume",
+      "description": "ALCOHOL DENAT. PARFUM LINALOOL LIMONENE HEXYL CINNAMAL GERANIOL EUGENOL COUMARIN CITRONELLOL CINNAMYL ALCOHOL BHT BENZYL SALICYLATE BENZYL BENZOATE BENZYL ALCOHOL AQUA"
     }
   ]

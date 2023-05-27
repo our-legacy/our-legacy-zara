@@ -33,7 +33,7 @@
 import { defineComponent } from 'vue';
 import Navbar from './navbar.vue';
 import axios from 'axios';
-import  useRouter  from 'vue-router';
+//import  useRouter  from 'vue-router';
 
 export default defineComponent({
   name: 'SignUp',
@@ -54,7 +54,7 @@ methods: {
   handleRegister: async function() {
     
       try {
-        const response = await axios.post('http://localhost:3000/auth/signup', {
+        const response = await axios.post('http://localhost:4000/auth/signup', {
           firstname: this.user.firstname,
           lastname: this.user.lastname,
           email: this.user.email,
@@ -74,15 +74,15 @@ methods: {
         this.user.error = 'Check your password or email.';
       }
     },
-    onChange(event) {
+    onChange(event:any) {
             console.log(event.target.value)
             this.user.firstname=event.target.value
         },
-        onChange1(event) {
+        onChange1(event:any) {
             console.log(event.target.value)
            this.user.lastname=event.target.value
         },
-        onChange2(event) {
+        onChange2(event:any) {
             console.log(event.target.value)
             this.user.email=event.target.value
         }

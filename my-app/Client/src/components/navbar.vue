@@ -19,7 +19,7 @@
             </div>
 
             <div class="nav-item">
-              <b-nav-item href="/login" class="font-sans text-lg" style="position: fixed;top: 40px;right: 150px;  z-index: 1000; cursor: pointer; background: transparent;border: none">
+              <b-nav-item href="/login"  style="position: fixed;top: 40px;right: 150px;  z-index: 1000; cursor: pointer; background: transparent;border: none"  @click="handleLoginClick" class="font-sans text-lg mr-3">
                 Sign In
               </b-nav-item>
             </div>
@@ -30,7 +30,7 @@
             </b-nav-item>
 
               <!-- <div class="nav-item" >
-              <b-nav-item   @click="handleLoginClick" class="font-sans text-lg mr-3">
+              <b-nav-item  >
                 SIGN IN
               </b-nav-item>
             </div> -->
@@ -49,7 +49,7 @@
   </div>
 </template>
 <script>
-import Sidebar from '../components/sidebar.vue'
+import Sidebar from "../components/sidebar.vue";
 export default {
   components: {
     Sidebar,
