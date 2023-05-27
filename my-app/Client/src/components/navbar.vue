@@ -16,8 +16,9 @@
   z-index: 1000;
     cursor: pointer;
     background: transparent;
-    border: none">
-                Search
+    border: none">    
+    <router-link to="/search">Search </router-link>
+             
               </b-nav-item>
             </div>
             <div class="cont">
@@ -40,7 +41,8 @@
     cursor: pointer;
     background: transparent;
     border: none">
-                Collection
+    <router-link to="/details">   Collection</router-link>
+             
               </b-nav-item>
             </div>
             <div class="nav-item">
