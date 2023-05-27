@@ -4,7 +4,6 @@ import express, { Request, Response } from "express";
 import cors from "cors";
 import connection from "./Connection/connection";
 import data from "./Connection/Data.json"
-
 import userRoute from "./route/user";
 import routerP from "./route/products"
 import cartRoute from "./route/cart"
@@ -15,8 +14,8 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
-  app.use(cookieParser());
 
+app.use(cookieParser());
 app.use("/auth", userRoute);
 app.use("/products", routerP)
 app.use("/cart", cartRoute)
@@ -33,7 +32,7 @@ const start = async (): Promise<void> => {
     try {
       await connection.sync();
       app.listen(4000, () => {
-        console.log("Server started on port 3000");
+        console.log("Server started on port 4000");
       });
     } catch (error) {
       console.error(error);

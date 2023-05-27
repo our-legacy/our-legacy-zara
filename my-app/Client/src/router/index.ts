@@ -1,18 +1,32 @@
 import {createRouter, createWebHistory} from "vue-router";
-//import the components he
+
 import Home from "../components/Home.vue"
+import search from "../components/search/search.vue"
+import details from "../components/details/details.vue"
+
+  
 import Cart from "../components/cart.vue" 
 import homeAdmin from "../components/AdminHome.vue"
 import login from '../components/Login.vue'
 import signup from '../components/Signup.vue'
 import adminsign from '../components/Adminsignup.vue'
-import adminlog from '../components/AdminLog.vue'
+import adminlog from '../components/Adminlog.vue'
 import onePost from '../components/onePost.vue'
 const routes=[    //call the components here
  {
     path: "/home",
      component: Home
  },
+
+{
+    path: "/search",
+     component: search
+ },
+ {
+    path: "/details",
+     component: details
+ },
+ 
  {path:"/cart",
  component: Cart},
 
