@@ -11,13 +11,15 @@ const getCart = async (req: Request, res: Response) => {
         users_id: userId,
       },
     });
-
-    const productIds = carts.map(cart => cart.products_id);
+    console.log(carts)
+    const productIds = carts.map(cart => cart.getDataValue('products_id'));
+    console.log(productIds)
     const products = await Products.findAll({
       where: {
         id: productIds,
       },
       attributes: [
+        'id',
         'name',
         'gender',
         'category',
@@ -51,7 +53,7 @@ const toCart = async (req: Request, res: Response) => {
 const deleteCart= async(req: Request, res: Response)=>{
   const prodID = req.params.prod;
   const userID = req.params.user;
-
+  console.log(prodID,userID)
   try {
     await Cart.destroy({
     where: { products_id: prodID, users_id: userID }

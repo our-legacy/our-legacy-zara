@@ -19,7 +19,7 @@
             </div>
 
             <div class="nav-item">
-              <b-nav-item href="/login" class="font-sans text-lg" style="position: fixed;top: 40px;right: 150px;  z-index: 1000; cursor: pointer; background: transparent;border: none">
+              <b-nav-item href="/login" class="font-sans text-lg" style="position: fixed;top: 40px;right: 150px;  z-index: 1000; cursor: pointer; background: transparent;border: none" @click="handleLoginClick">
                 Sign In
               </b-nav-item>
             </div>
@@ -28,12 +28,6 @@
               <router-link to="/details"> Collection</router-link>
 
             </b-nav-item>
-
-              <!-- <div class="nav-item" >
-              <b-nav-item   @click="handleLoginClick" class="font-sans text-lg mr-3">
-                SIGN IN
-              </b-nav-item>
-            </div> -->
               <div class="nav-item">
                 <b-nav-item href="/cart" id="cart">
                   <img

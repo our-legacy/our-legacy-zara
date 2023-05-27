@@ -65,7 +65,7 @@
                   padding-right: 20px;
                   padding-bottom: 5px;
                 "
-                @click="handleDelete(item.products_id)"
+                @click="handleDelete(item.id)"
               >
                 DELETE
               </div>
@@ -111,7 +111,7 @@ import { defineComponent } from 'vue';
 import Navbar from './navbar.vue';
 
 interface CartItem {
-  products_id: number;
+  id: number;
   image: string;
   name: string;
   price: number;
@@ -132,7 +132,7 @@ export default defineComponent({
   methods: {
     fetchData(): void {
       axios
-        .get<CartItem[]>(`http://localhost:4000/cart/1`)
+        .get<CartItem[]>(`http://localhost:4000/cart/${currentUser}`)
         .then((res) => {
           this.data = res.data.map((item) => ({
             ...item,
@@ -144,10 +144,11 @@ export default defineComponent({
         });
     },
     handleDelete(prodId: number): void {
+      console.log(prodId)
       axios
-        .delete(`http://localhost:4000/cart/delete/${prodId}/${currentUser.id}`)
+        .delete(`http://localhost:4000/cart/delete/${prodId}/${currentUser}`)
         .then(() => {
-          window.location.reload();
+           window.location.reload();
         })
         .catch((err) => {
           console.log(err);

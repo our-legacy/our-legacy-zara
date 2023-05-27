@@ -54,7 +54,7 @@ methods: {
   handleRegister: async function() {
     
       try {
-        const response = await axios.post('http://localhost:3000/auth/signup', {
+        const response = await axios.post('http://localhost:4000/auth/signup', {
           firstname: this.user.firstname,
           lastname: this.user.lastname,
           email: this.user.email,
