@@ -29,7 +29,7 @@
 
             </b-nav-item>
               <div class="nav-item">
-                <b-nav-item href="/cart" id="cart">
+                <b-nav-item href="/cart" id="cart"  @click="handleCartClik">
                   <img
                     src="https://cdn.discordapp.com/attachments/1073948141822427256/1108700360891183175/aFtEKyQmH8K26qurE22yD-transformed.png"
                     class="louka" style="position: fixed;top: 20px; right: 10px; z-index: 1000;cursor: pointer;background: transparent;border: none" />
@@ -52,6 +52,9 @@ export default {
     handleLoginClick() {
       this.$router.push('/login');
     },
+    handleCartClik(){
+      this.$router.push("/cart")
+    }
   },
 };
 </script>

@@ -13,7 +13,11 @@
                 e.name
               }}</span>
               <span class="mb-3 text-right details">${{ e.price }}</span>
+              
             </MDBCardBody>
+            <button class="button button--winona button--border-thick button--round-l button--text-upper button--size-s button--text-thick" data-text="Open Project"  @click="handleAdd(e.id)">
+                <span>ADD TO CART</span>
+              </button>
           </MDBCard>
         </MDBCol>
       </MDBRow>
@@ -22,7 +26,7 @@
 </template>
 
 <script>
-import Navbar from "../components/navbar.vue"
+import Navbar from './navbar.vue';
 import axios from "axios";
 import {
   MDBContainer,
@@ -31,6 +35,8 @@ import {
   MDBCard,
   MDBCardBody,
 } from "mdb-vue-ui-kit";
+
+const currentUser = JSON.parse(window.localStorage.getItem('token'));
 
 export default {
   data() {
@@ -54,7 +60,18 @@ export default {
           console.log(err);
         });
     },
+    handleAdd(id){
+      axios.post(`http://localhost:4000/cart/add`,{
+        users_id:currentUser,
+        products_id:id
+        
+      })
+      .then(res=>console.log(res))
+       .catch((err) => {
+          console.log(err);
+        });
   },
+},
   mounted() {
     this.category = window.location.pathname.split("/")[2];
     this.gender = window.location.pathname.split("/")[1];
