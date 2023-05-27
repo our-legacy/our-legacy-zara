@@ -11,7 +11,6 @@ import adminRoute from "./route/Admin"
 import {Products} from "./models/Products"
 
 const app = express();
-
 app.use(express.json());
 app.use(cors());
 
@@ -31,7 +30,7 @@ app.get("/", (req: Request, res: Response): Response => {
 const start = async (): Promise<void> => {
     try {
       await connection.sync();
-      app.listen(4000, () => {
+      app.listen(4000,() => {
         console.log("Server started on port 4000");
       });
     } catch (error) {
@@ -42,7 +41,7 @@ const start = async (): Promise<void> => {
 
   // connection.sync().then(() => {
   //   app.listen(4000, () => {
-  //     console.log("Server is running on port 3000");
+  //     console.log("Server is running on port 4000");
   //   });
   // }).then(() => {
   //   async function insertDummyData() {
