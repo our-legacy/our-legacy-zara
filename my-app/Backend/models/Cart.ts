@@ -12,6 +12,7 @@ export class Cart extends Model<Cart> {
     type: DataType.INTEGER,
     allowNull: false,
     primaryKey: true,
+    field: 'users_id',
   })
   users_id!: number;
 
@@ -20,6 +21,7 @@ export class Cart extends Model<Cart> {
     type: DataType.INTEGER,
     allowNull: false,
     primaryKey: true,
+    field: 'products_id',
   })
   products_id!: number;
 }
