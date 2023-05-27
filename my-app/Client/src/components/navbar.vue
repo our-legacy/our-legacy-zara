@@ -11,10 +11,9 @@
         <b-collapse id="navbarScroll" is-nav>
           <b-nav class="ml-auto my-2 my-lg-0" style="max-height: 100px" navbar-scroll>
             <div class="nav-item">
-              <b-nav-item href="/search" class="font-sans text-lg" style="position: fixed;  top: 40px;right: 90px; z-index: 1000;cursor: pointer;background: transparent;border: none">
+              <b-nav-item href="/search" style="position: fixed;  top: 40px;right: 90px; z-index: 1000;cursor: pointer;background: transparent;border: none" @click="handleSearchClick" class="font-sans text-lg" >
    
-                <router-link to="/search">Search </router-link>
-
+                Search 
               </b-nav-item>
             </div>
 
@@ -24,8 +23,8 @@
               </b-nav-item>
             </div>
             <div class="nav-item">
-              <b-nav-item href="/details" class="font-sans text-lg " style="position: fixed; top: 40px; right: 210px;z-index: 1000;cursor: pointer;background: transparent;border: none" >
-              <router-link to="/details"> Collection</router-link>
+              <b-nav-item href="/details" class="font-sans text-lg " style="position: fixed; top: 40px; right: 210px;z-index: 1000;cursor: pointer;background: transparent;border: none" @click="handleCollectionClick" >
+               Collection
 
             </b-nav-item>
 
@@ -57,6 +56,12 @@ export default {
   methods: {
     handleLoginClick() {
       this.$router.push('/login');
+    },
+    handleSearchClick() {
+      this.$router.push('/search');
+    },
+    handleCollectionClick() {
+      this.$router.push('/details');
     },
   },
 };

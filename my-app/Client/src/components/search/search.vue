@@ -56,5 +56,9 @@ export default {
       );
     },
   },
+  handleSearchClick() {
+      this.$router.push('/search');
+    },
+  
 };
 </script>

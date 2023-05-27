@@ -1,6 +1,7 @@
 <template>
-  <Navbar />
+  
   <div class="center-container" style="margin-top: 150px;">
+    <Navbar />
     <div v-for="e in data" :key="e.id" class="col-md-12 col-lg-4 mb-4">
       <div class="card h-100">
         <img :src="e.image" :alt="e.name" class="w-100" />
@@ -42,6 +43,9 @@ export default {
         });
     },
   },
+  handleCollectionClick() {
+      this.$router.push('/details');
+    },
 };
 </script>
 
