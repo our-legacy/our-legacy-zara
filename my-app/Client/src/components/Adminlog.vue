@@ -1,4 +1,11 @@
 <template>
+  <!-- <div class="login-form">
+    <h3>Login Admin</h3>
+    <input type="email" class="inp" placeholder="Email" v-model="email" />
+    <input type="password" class="inp" placeholder="Password" v-model="password" />
+    <input type="button" class="btn" value="Submit" @click="handleLogin" />
+    <button class="btn" @click="navigateToSignUp">Sign Up</button>
+  </div> -->
   <div>
     <Navbar />
     
@@ -10,7 +17,7 @@
           </h3>
           <form id="form" @submit.prevent="handleLogin" style="width: 100%;">
             <div id="ep" style="margin-bottom: 10%;">
-              <input type="email" id="inputEmail" @click="handleLogin" placeholder="E-MAIL" required v-model="email" style="border: 0; border-bottom: 1px solid gray; width: 100%; height: 30px; font-family: Neue Helvetica, Arial, Helvetica, sans-serif; font-size: 12px;" />
+              <input type="email" id="inputEmail" placeholder="E-MAIL" required v-model="email" style="border: 0; border-bottom: 1px solid gray; width: 100%; height: 30px; font-family: Neue Helvetica, Arial, Helvetica, sans-serif; font-size: 12px;" />
               <br />
               <input type="password" id="inputPasswd" placeholder="PASSWORD" required v-model="password" style="border: 0; border-bottom: 1px solid gray; width: 100%; height: 30px; font-family: Neue Helvetica, Arial, Helvetica, sans-serif; font-size: 12px;" />
             </div>
@@ -25,7 +32,7 @@
         <section>
           <h3 style="margin-bottom: 12px; font-weight: 600; font-family: Neue Helvetica, Arial, Helvetica, sans-serif; font-size: 14px;">NEED AN ACCOUNT?</h3>
           <div id="bttn" style="margin-top: 20px;">
-            <button @click="handleRegisterClick" style="width: 19em; height: 2.7em; background-color: white; color: black; margin-top: 13px; cursor: pointer; outline: none; border: 1px solid black; font-family: Neue Helvetica, Arial, Helvetica, sans-serif; font-size: 15px;">REGISTER</button>
+            <button @click="navigateToSignUp" style="width: 19em; height: 2.7em; background-color: white; color: black; margin-top: 13px; cursor: pointer; outline: none; border: 1px solid black; font-family: Neue Helvetica, Arial, Helvetica, sans-serif; font-size: 15px;">REGISTER</button>
           </div>
         </section>
       </div>
@@ -36,59 +43,45 @@
   </div>
 </template>
 
-<script lang="ts">
-import Navbar from './navbar.vue';
+<script>
 import axios from 'axios';
-import  useRouter  from 'vue-router';
-
+import Navbar from './navbar.vue';
 export default {
-  name: 'Login',
+    name: 'AdminLog',
   components: {
     Navbar,
   },
   data() {
     return {
-    user: { email: '',
-      password: '',}
+      email: '',
+      password: '',
     };
   },
   methods: {
     async handleLogin() {
       try {
         if (this.email.trim() === '' || this.password.trim() === '') {
-          console.error('Email or password cannot be empty.');
-          return;
+          return alert('Please fill in all the fields.');
         }
-
-        const response = await axios.post('http://localhost:3000/auth/login', {
+        const response = await axios.post('http://localhost:3000/admin/loginadmin', {
           email: this.email,
           password: this.password,
         });
-        console.log(response.data);
         const loginSuccess = true;
-
+    //    conosle.log(email,password)
         if (loginSuccess) {
-            alert("welcome to zara")
-          this.$router.push('/home');
-            window.localStorage.setItem("token", JSON.stringify(response.data));
-          this.$router.push('/');
+         alert("welcome to zara")
+         this.$router.push('/homeAdmin');
         } else {
-          console.error('Login failed.');
-        }
+          alert("login failed");
+        }   
       } catch (error) {
-        console.error(error);
+        console.log(error)
       }
     },
-    handleLoginClick() {
-      this.$router.push('/signup');
-    },
-    handleRegisterClick() {
-      this.handleLoginClick();
+    navigateToSignUp() {
+      this.$router.push('/adminsignup');
     },
   },
 };
 </script>
-
-<style>
-
-</style>
