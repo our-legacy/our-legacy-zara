@@ -31,7 +31,7 @@ export default {
   methods: {
     fetchData() {
       axios
-        .get("http://localhost:3000/products/products")
+        .get("http://localhost:4000/products/products")
         .then((res) => {
           this.data = res.data;
         })

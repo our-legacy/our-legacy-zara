@@ -44,7 +44,7 @@ export default {
     };
   },
   async mounted() {
-    const { data } = await axios.get('http://localhost:3000/products/products');
+    const { data } = await axios.get('http://localhost:4000/products/products');
     this.products = data;
   },
   computed: {
