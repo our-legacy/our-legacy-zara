@@ -76,7 +76,7 @@ export default {
 .malouka {
 
   position: fixed;
-  width: 20%;
+  width: 15%;
   margin-left: 100px;
   z-index: 1000;
   cursor: pointer;

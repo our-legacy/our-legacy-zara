@@ -4,21 +4,21 @@
       <div class="slide">
         <img
           class="slide-image"
-          src="https://static.zara.net/photos///contents/mkt/spots/ss23-north-woman-new/subhome-xmedia-20//w/1920/IMAGE-landscape-fill-c858f95e-9272-423c-a1ee-40e7dfd5b638-default_0.jpg?ts=1684136380997"
+          src="https://static.zara.net/photos///contents/mkt/spots/ss23-north-woman-new/subhome-xmedia-21//w/1920/IMAGE-landscape-fill-8d9e274f-93da-4343-af1d-1e546f4d902f-default_0.jpg?ts=1684940939176"
           alt="First slide"
         />
       </div>
       <div class="slide">
         <img
           class="slide-image"
-          src="https://static.zara.net/photos///contents/mkt/spots/ss23-north-woman-dresses/subhome-xmedia-20//w/1920/IMAGE-landscape-fill-07b13c36-46b1-440b-84a8-e3af731690ef-default_0.jpg?ts=1684086767489"
+          src="https://static.zara.net/photos///contents/mkt/spots/ss23-north-woman-knitwear/subhome-xmedia-21//w/1920/IMAGE-landscape-default-fill-1d6493d7-81d1-4652-9974-e6869a28fa51-default_0.jpg?ts=1684943940944"
           alt="Second slide"
         />
       </div>
       <div class="slide">
         <img
           class="slide-image"
-          src="https://static.zara.net/photos///contents/mkt/spots/ss23-north-man-new/subhome-xmedia-19-2//w/1920/IMAGE-landscape-fill-7c8c1a5b-ce41-46df-94ea-8f45d2bd772f-default_0.jpg?ts=1683800443276"
+          src="https://static.zara.net/photos///contents/mkt/spots/ss23-north-woman-accesories/subhome-xmedia-21-2//w/1920/IMAGE-landscape-fill-79ca3793-4421-43d7-9450-87a544a3465c-default_0.jpg?ts=1684941996804"
           alt="Third slide"
         />
       </div>
