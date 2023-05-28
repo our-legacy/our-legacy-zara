@@ -23,6 +23,7 @@ import Navbar from "../navbar.vue"
 import axios from "axios";
 
 export default {
+  components: { Navbar },
   data() {
     return {
       data: [],
