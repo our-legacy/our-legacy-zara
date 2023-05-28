@@ -17,45 +17,50 @@ export const getUser = async (req: Request, res: Response) => {
     res.status(500).send("Error retrieving users");
   }
 };
-
-
-
+ 
 
 export const userLogin = async (req: Request, res: Response) => {
-  const { email, password } = req.body;
-  // console.log(req.body)
+  try {
+    const { email, password } = req.body;
+    // console.log(req.body)
 
-  
-    const user:any = await Users.findOne({ where: { email} });
+    const user: any = await Users.findOne({ where: { email} });
     // console.log(user)
-    if (!user) { 
+    if (!user) {
       return res.status(400).send({
-          message: 'Invalid Credentials '
-      })
-  }
-  const matchedPassword = await bcryptjs.compare(
-    password as string,
-    user.dataValues.password as string
-  );
+        message: 'Invalid Credentials'
+      });
+    }
 
-  if (matchedPassword) {
-    const token = jwt.sign(
-      {
-        userId: user.id,
-        userEmail: user.email
-      },
-      "123"
+    const matchedPassword = await bcryptjs.compare(
+      password as string,
+      user.dataValues.password as string
     );
 
-res.status(200).json({
-      token: token,
-      message: "Authentication successful",
-      id:user.id
-    });
-  } else {
-    res.status(400).send("Wrong password");
+    if (matchedPassword) {
+      const token = jwt.sign(
+        {
+          userId: user.id,
+          userEmail: user.email
+        },
+        '123'
+      );
+
+      return res.status(200).json({
+        token: token,
+        message: 'Authentication successful',
+        id: user.id
+      });
+    } else {
+      return res.status(400).send('Wrong password');
+    }
+  } catch (error) {
+    // Handle the error appropriately
+    console.error(error);
+    res.status(500).send('Internal Server Error');
   }
 };
+
 
 
 /////signup //////////

@@ -1,6 +1,8 @@
 <template>
+<div>
   <div>
-    <Navbar />
+        <navbar/>
+    </div>   
     <MDBContainer style="margin-top: 150px">
       
       <MDBRow class="justify-content-center">
@@ -24,12 +26,14 @@
       </MDBRow>
     </MDBContainer>
   </div>
+  
 </template>
 
 <script>
-import Navbar from './navbar.vue';
+import navbar from "./navbar.vue";
 import axios from "axios";
 import {
+ 
   MDBContainer,
   MDBRow,
   MDBCol,
@@ -40,7 +44,7 @@ import {
 // const currentUser = JSON.parse(window.localStorage.getItem('token'));
 
 export default {
-  components: { Navbar },
+  components: { navbar },
   data() {
     return {
       gender: "",

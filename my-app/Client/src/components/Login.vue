@@ -26,6 +26,8 @@
           <h3 style="margin-bottom: 12px; font-weight: 600; font-family: Neue Helvetica, Arial, Helvetica, sans-serif; font-size: 14px;">NEED AN ACCOUNT?</h3>
           <div id="bttn" style="margin-top: 20px;">
             <button @click="handleRegisterClick" style="width: 19em; height: 2.7em; background-color: white; color: black; margin-top: 13px; cursor: pointer; outline: none; border: 1px solid black; font-family: Neue Helvetica, Arial, Helvetica, sans-serif; font-size: 15px;">REGISTER</button>
+            <button @click="handleADMIN" style="width: 19em; height: 2.7em; background-color: white; color: black; margin-top: 13px; cursor: pointer; outline: none; border: 1px solid black; font-family: Neue Helvetica, Arial, Helvetica, sans-serif; font-size: 15px;">ADMIN LOG</button>
+
           </div>
         </section>
       </div>
@@ -67,12 +69,9 @@ export default {
         console.log(response.data);
         const loginSuccess = true;
 
-
         if (loginSuccess) {
             alert("welcome to zara")
-            this.handleClick()
-            window.localStorage.setItem("token", JSON.stringify(response.data));
-          this.$router.push('/');
+          this.$router.push('/home');
         } else {
           console.error('Login failed.');
         }
@@ -86,8 +85,8 @@ export default {
     handleRegisterClick() {
       this.handleLoginClick();
     },
-    handleClick() {
-      this.$router.push('/home');
+    handleADMIN() {
+      this.$router.push('/adminlog');
     },
   },
 };
