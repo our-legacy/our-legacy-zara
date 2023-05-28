@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@chakra-ui/vue": "^0.13.1",
+    "@chakra-ui/vue": "^0.13.1", 
     "autoprefixer": "^10.4.14",
     "axios": "^1.4.0",
     "boostrap": "^2.0.0",

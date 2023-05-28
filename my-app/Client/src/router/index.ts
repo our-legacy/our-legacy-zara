@@ -3,7 +3,7 @@ import {createRouter, createWebHistory} from "vue-router";
 import Home from "../components/Home.vue"
 import search from "../components/search/search.vue"
 import details from "../components/details/details.vue"
-
+import Admincheck from "../components/AdminCheck.vue"
   
 import Cart from "../components/cart.vue" 
 import homeAdmin from "../components/AdminHome.vue"
@@ -16,6 +16,8 @@ const routes = [
 
   {path: "/search",component: search},
   {path: "/details",component: details},
+  {path: "/AdminCheck",component: Admincheck},
+
   { path: "/home", component: Home },
   { path: '/login', component: login },
   { path: '/signup', component: signup },

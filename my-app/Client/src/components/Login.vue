@@ -16,7 +16,7 @@
             </div>
             <p class="size6" style="font-family: Neue Helvetica, Arial, Helvetica, sans-serif; font-size: 9px; margin-top: 10px; color: grey; text-align: center;">HAVE YOU FORGOTTEN YOUR PASSWORD?</p>
             <div id="logbttn" style="margin-top: 45px;">
-              <button id="signin" class="login-btn" @click="handleLogin" style="width: 19em; height: 2.7em; background-color: black; color: white; margin-top: 13px; cursor: pointer; outline: none; border: none; font-family: Neue Helvetica, Arial, Helvetica, sans-serif; font-size: 12px;">LOG IN</button>
+              <button id="signin" class="login-btn" @click="handleClick" style="width: 19em; height: 2.7em; background-color: black; color: white; margin-top: 13px; cursor: pointer; outline: none; border: none; font-family: Neue Helvetica, Arial, Helvetica, sans-serif; font-size: 12px;">LOG IN</button>
             </div>
           </form>
         </section>
@@ -69,7 +69,7 @@ export default {
 
         if (loginSuccess) {
             alert("welcome to zara")
-          this.$router.push('/home');
+            this.handleClick()
             window.localStorage.setItem("token", JSON.stringify(response.data));
           this.$router.push('/');
         } else {
@@ -84,6 +84,9 @@ export default {
     },
     handleRegisterClick() {
       this.handleLoginClick();
+    },
+    handleClick() {
+      this.$router.push('/home');
     },
   },
 };
