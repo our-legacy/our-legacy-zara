@@ -16,7 +16,7 @@ export const getUser = async (req: Request, res: Response) => {
     console.error("Error retrieving users:", error);
     res.status(500).send("Error retrieving users");
   }
-};0
+};
 
 
 
