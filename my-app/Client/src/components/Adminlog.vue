@@ -63,7 +63,7 @@ export default {
         if (this.email.trim() === '' || this.password.trim() === '') {
           return alert('Please fill in all the fields.');
         }
-        const response = await axios.post('http://localhost:3000/admin/loginadmin', {
+        const response = await axios.post('http://localhost:4000/admin/loginadmin', {
           email: this.email,
           password: this.password,
         });
