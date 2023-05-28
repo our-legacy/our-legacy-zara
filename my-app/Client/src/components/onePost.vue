@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Navbar />
     <MDBContainer style="margin-top: 150px">
       <MDBRow class="justify-content-center">
         <MDBCol v-for="e in data" :key="e.id" md="12" lg="4" class="mb-4">
@@ -21,6 +22,7 @@
 </template>
 
 <script>
+import Navbar from "../components/navbar.vue"
 import axios from "axios";
 import {
   MDBContainer,
@@ -42,10 +44,11 @@ export default {
     fetchData() {
       axios
         .get(
-          `http://localhost:4001/zara/product/${this.gender}/${this.category}`
+          `http://localhost:4000/products/${this.gender}/${this.category}`
         )
         .then((res) => {
           this.data = res.data;
+          console.log(res.data)
         })
         .catch((err) => {
           console.log(err);
