@@ -56,7 +56,7 @@ export default {
   },
   methods: {
     fetchUsers() {
-      fetch("http://localhost:3000/auth/getAll")
+      fetch("http://localhost:4000/auth/getAll")
         .then(response => response.json())
         .then(user => {
           this.users = user; 
@@ -67,7 +67,7 @@ export default {
     },
     handledelete(id){
        if(window.confirm("are you sure that u want to delete it")){
-    axios.delete(`http://localhost:3000/auth/deleted/${id}`)
+    axios.delete(`http://localhost:4000/auth/deleted/${id}`)
     .then((res)=> {
           alert(" user deleted"); 
           this.fetchUsers();
