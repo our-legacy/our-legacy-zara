@@ -8,7 +8,8 @@ const getCart = async (req: Request, res: Response) => {
   try {
     const carts = await Cart.findAll({
       where: {
-        users_id: userId,
+         users_id: 1,
+        
       },
     });
     console.log(carts)
@@ -36,7 +37,7 @@ const getCart = async (req: Request, res: Response) => {
 };
 
 const toCart = async (req: Request, res: Response) => {
-  const { users_id, products_id } = req.body;
+ const { users_id, products_id } = req.body;
 
   try {
     await Cart.create<any>({
@@ -56,7 +57,8 @@ const deleteCart= async(req: Request, res: Response)=>{
   console.log(prodID,userID)
   try {
     await Cart.destroy({
-    where: { products_id: prodID, users_id: userID }
+     where: { products_id: prodID, users_id: 1 }
+    
   })
 } catch (error) {
   console.log(error)

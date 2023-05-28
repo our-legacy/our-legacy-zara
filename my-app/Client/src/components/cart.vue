@@ -118,8 +118,8 @@ interface CartItem {
   productQuantity: number;
 }
 
-const currentUser = JSON.parse(window.localStorage.getItem('token'));
-
+// const currentUser = JSON.parse(window.localStorage.getItem('token'));
+// console.log(currentUser)
 export default defineComponent({
   components: { Navbar },
   data() {
@@ -132,7 +132,8 @@ export default defineComponent({
   methods: {
     fetchData(): void {
       axios
-        .get<CartItem[]>(`http://localhost:4000/cart/${currentUser}`)
+        // .get<CartItem[]>(`http://localhost:4000/cart/${currentUser}`)
+          .get<CartItem[]>(`http://localhost:4000/cart/1`)
         .then((res) => {
           this.data = res.data.map((item) => ({
             ...item,
@@ -146,13 +147,13 @@ export default defineComponent({
     handleDelete(prodId: number): void {
       console.log(prodId)
       axios
-        .delete(`http://localhost:4000/cart/delete/${prodId}/${currentUser}`)
-        .then(() => {
-           window.location.reload();
-        })
+        // .delete(`http://localhost:4000/cart/delete/${prodId}/${currentUser}`)
+        .delete(`http://localhost:4000/cart/delete/${prodId}/1`)
+        
         .catch((err) => {
           console.log(err);
         });
+        window.location.reload();
     },
     incrementQuantity(item: CartItem): void {
       item.productQuantity += 1;

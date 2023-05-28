@@ -36,7 +36,7 @@ import {
   MDBCardBody,
 } from "mdb-vue-ui-kit";
 
-const currentUser = JSON.parse(window.localStorage.getItem('token'));
+// const currentUser = JSON.parse(window.localStorage.getItem('token'));
 
 export default {
   data() {
@@ -62,7 +62,8 @@ export default {
     },
     handleAdd(id){
       axios.post(`http://localhost:4000/cart/add`,{
-        users_id:currentUser,
+        // users_id:currentUser,
+        users_id:1,
         products_id:id
         
       })
