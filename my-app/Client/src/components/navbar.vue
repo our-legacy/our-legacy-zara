@@ -19,7 +19,7 @@
             </div>
 
             <div class="nav-item">
-              <b-nav-item href="/login"  style="position: fixed;top: 40px;right: 150px;  z-index: 1000; cursor: pointer; background: transparent;border: none"  @click="handleLoginClick" class="font-sans text-lg mr-3">
+              <b-nav-item href="/login" class="font-sans text-lg" style="position: fixed;top: 40px;right: 150px;  z-index: 1000; cursor: pointer; background: transparent;border: none" @click="handleLoginClick">
                 Sign In
               </b-nav-item>
             </div>
@@ -28,14 +28,8 @@
               <router-link to="/details"> Collection</router-link>
 
             </b-nav-item>
-
-              <!-- <div class="nav-item" >
-              <b-nav-item  >
-                SIGN IN
-              </b-nav-item>
-            </div> -->
               <div class="nav-item">
-                <b-nav-item href="/cart" id="cart">
+                <b-nav-item href="/cart" id="cart"  @click="handleCartClik">
                   <img
                     src="https://cdn.discordapp.com/attachments/1073948141822427256/1108700360891183175/aFtEKyQmH8K26qurE22yD-transformed.png"
                     class="louka" style="position: fixed;top: 20px; right: 10px; z-index: 1000;cursor: pointer;background: transparent;border: none" />
@@ -58,6 +52,9 @@ export default {
     handleLoginClick() {
       this.$router.push('/login');
     },
+    handleCartClik(){
+      this.$router.push("/cart")
+    }
   },
 };
 </script>

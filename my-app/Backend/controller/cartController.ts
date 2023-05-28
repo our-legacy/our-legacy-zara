@@ -8,16 +8,19 @@ const getCart = async (req: Request, res: Response) => {
   try {
     const carts = await Cart.findAll({
       where: {
-        users_id: userId,
+         users_id: 1,
+        
       },
     });
-
-    const productIds = carts.map(cart => cart.products_id);
+    console.log(carts)
+    const productIds = carts.map(cart => cart.getDataValue('products_id'));
+    console.log(productIds)
     const products = await Products.findAll({
       where: {
         id: productIds,
       },
       attributes: [
+        'id',
         'name',
         'gender',
         'category',
@@ -34,7 +37,7 @@ const getCart = async (req: Request, res: Response) => {
 };
 
 const toCart = async (req: Request, res: Response) => {
-  const { users_id, products_id } = req.body;
+ const { users_id, products_id } = req.body;
 
   try {
     await Cart.create<any>({
@@ -51,10 +54,11 @@ const toCart = async (req: Request, res: Response) => {
 const deleteCart= async(req: Request, res: Response)=>{
   const prodID = req.params.prod;
   const userID = req.params.user;
-
+  console.log(prodID,userID)
   try {
     await Cart.destroy({
-    where: { products_id: prodID, users_id: userID }
+     where: { products_id: prodID, users_id: 1 }
+    
   })
 } catch (error) {
   console.log(error)
