@@ -39,6 +39,7 @@ import Navbar from "../navbar.vue"
 import axios from 'axios';
 
 export default {
+  components: { Navbar },
   data() {
     return {
       query: '',
@@ -56,5 +57,9 @@ export default {
       );
     },
   },
+  handleSearchClick() {
+      this.$router.push('/search');
+    },
+  
 };
 </script>

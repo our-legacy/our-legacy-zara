@@ -2,6 +2,7 @@
   <div>
     <Navbar />
     <MDBContainer style="margin-top: 150px">
+      
       <MDBRow class="justify-content-center">
         <MDBCol v-for="e in data" :key="e.id" md="12" lg="4" class="mb-4">
           <MDBCard class="h-100">
@@ -39,6 +40,7 @@ import {
 // const currentUser = JSON.parse(window.localStorage.getItem('token'));
 
 export default {
+  components: { Navbar },
   data() {
     return {
       gender: "",
@@ -67,11 +69,13 @@ export default {
         products_id:id
         
       })
+      alert("product added to cart")
       .then(res=>console.log(res))
        .catch((err) => {
           console.log(err);
         });
-  },
+  }, 
+
 },
   mounted() {
     this.category = window.location.pathname.split("/")[2];
